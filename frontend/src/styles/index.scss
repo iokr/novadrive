@@ -1,0 +1,213 @@
+@use './theme.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#app {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--nd-bg-glow), var(--nd-bg);
+  background-attachment: fixed;
+  color: var(--nd-text);
+  font-family: system-ui, -apple-system, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB',
+    'Microsoft YaHei', sans-serif;
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 220ms ease, color 220ms ease;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+// 数字等宽，便于体积 / 进度对齐
+.num {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum';
+}
+
+// 卡片
+.glass-card {
+  background: var(--nd-surface);
+  border: 1px solid var(--nd-border);
+  border-radius: var(--nd-radius-card);
+  box-shadow: var(--nd-shadow-sm);
+}
+
+// 文本工具类
+.text-secondary {
+  color: var(--nd-text-secondary);
+}
+.text-muted {
+  color: var(--nd-text-muted);
+}
+.text-gradient {
+  background: var(--nd-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+// 滚动条
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--nd-border);
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--nd-text-muted);
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+// 品牌徽标
+.nd-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+.nd-logo__mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 11px;
+  background: var(--nd-gradient);
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 17px;
+  box-shadow: 0 6px 16px rgba(43, 127, 255, 0.28);
+  flex: none;
+}
+
+// Element Plus 细节微调
+.el-button {
+  border-radius: var(--nd-radius-btn);
+}
+.el-dialog {
+  border-radius: var(--nd-radius-card);
+  border: 1px solid var(--nd-border);
+  background: var(--el-bg-color-overlay, var(--nd-surface-strong));
+  box-shadow: var(--nd-shadow);
+}
+
+// 表格：白底 + 浅灰表头 + 极浅行分隔线（对齐网盘列表观感）
+.el-table {
+  --el-table-bg-color: transparent;
+  --el-table-tr-bg-color: transparent;
+  --el-table-header-bg-color: var(--nd-surface-sunken);
+  --el-table-header-text-color: var(--nd-text-secondary);
+  --el-table-text-color: var(--nd-text);
+  --el-table-border-color: var(--nd-border);
+  --el-table-row-hover-bg-color: var(--nd-surface-hover);
+  background: transparent;
+}
+.el-table th.el-table__cell {
+  font-weight: 500;
+  font-size: 12.5px;
+}
+.el-table__inner-wrapper::before {
+  display: none;
+}
+
+// 输入框 / 下拉：淡灰填充，聚焦时转白底 + 主色描边
+.el-input__wrapper,
+.el-select__wrapper,
+.el-textarea__inner {
+  background-color: var(--nd-surface-sunken);
+  box-shadow: 0 0 0 1px transparent inset;
+}
+.el-input__wrapper:hover,
+.el-select__wrapper:hover {
+  box-shadow: 0 0 0 1px var(--nd-border-strong) inset;
+}
+.el-input__wrapper.is-focus,
+.el-select__wrapper.is-focused {
+  background-color: var(--nd-surface);
+  box-shadow: 0 0 0 1px var(--nd-primary) inset;
+}
+.el-drawer {
+  --el-drawer-bg-color: var(--el-bg-color-overlay);
+}
+.el-message-box {
+  border-radius: var(--nd-radius-card);
+}
+.el-overlay {
+  background-color: rgba(15, 23, 42, 0.4);
+}
+.el-popper {
+  border-radius: 10px;
+}
+
+// 页面通用容器
+.nd-page {
+  padding: 18px 24px 40px;
+}
+.nd-page__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+.nd-page__title {
+  font-size: 20px;
+  font-weight: 650;
+  letter-spacing: 0.2px;
+}
+.nd-page__subtitle {
+  color: var(--nd-text-secondary);
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+// 页面切换淡入
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 200ms ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+@media (max-width: 767px) {
+  .nd-page {
+    padding: 14px 12px 32px;
+  }
+  .nd-page__title {
+    font-size: 17px;
+  }
+}

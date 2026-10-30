@@ -1,0 +1,70 @@
+server:
+  name: "novadrive"
+  port: 8888
+  mode: "release"          # debug / release
+  read_timeout: 60         # 秒
+  write_timeout: 600       # 秒，大文件下载 / zip 打包需要更长时间
+  base_url: "http://localhost:8080"
+
+database:
+  host: "127.0.0.1"
+  port: 3306
+  user: "root"
+  password: "root"
+  name: "novadrive"
+  charset: "utf8mb4"
+  max_idle_conns: 10
+  max_open_conns: 100
+
+jwt:
+  secret: "novadrive-change-me-in-production"
+  expire_hours: 72
+
+storage:
+  type: "local"
+  local:
+    root: "./data/blobs"
+    thumb_root: "./data/thumbs"
+    upload_root: "./data/uploads"
+  upload:
+    max_file_size: 2147483648      # 2GB
+    max_batch_files: 500
+    max_batch_size: 4294967296     # 4GB
+    allowed_ext: [pdf, mp4, webm, mov, jpg, jpeg, png, gif, webp, bmp, svg,
+                  mp3, wav, txt, md, json, zip, docx, xlsx, pptx]
+  chunk:
+    enabled: true
+    threshold: 10485760            # 大于 10MB 建议走分片
+    default_chunk_size: 5242880    # 5MB
+    max_chunk_size: 52428800       # 50MB
+    merge_buffer_size: 4194304     # 4MB
+  session:
+    expire_hours: 24
+    gc_interval_minutes: 60
+
+download:
+  zip_buffer_size: 32768
+  zip_max_entries: 10000
+
+thumbnail:
+  enabled: true
+  max_width: 400
+  max_height: 400
+  quality: 80
+
+share:
+  token_length: 32
+  default_expire_days: 0           # 0 表示永久有效
+
+blob_gc:
+  enabled: true
+  interval_minutes: 30
+
+bootstrap:
+  admin_username: "admin"
+  admin_email: "admin@local"
+  admin_password: "admin123"
+
+log:
+  level: "info"
+  path: "./logs"

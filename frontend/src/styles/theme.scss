@@ -1,0 +1,86 @@
+// NovaDrive 主题变量：默认浅色（白底 + 淡灰画布），html.dark 切换深色
+$primary: #2b7fff;
+$cyan: #22d3ee;
+$purple: #8b5cf6;
+
+:root {
+  --nd-primary: #{$primary};
+  --nd-cyan: #{$cyan};
+  --nd-purple: #{$purple};
+  --nd-gradient: linear-gradient(135deg, #{$primary} 0%, #{$cyan} 100%);
+  --nd-radius-card: 12px;
+  --nd-radius-btn: 8px;
+  --nd-sidebar-width: 232px;
+  --nd-sidebar-collapsed: 76px;
+  --nd-topbar-height: 60px;
+
+  // 浅色为默认：白卡片 + 极浅灰画布，接近主流网盘的观感
+  color-scheme: light;
+  --nd-bg: #f5f7fa;
+  --nd-bg-glow: linear-gradient(180deg, #ffffff 0%, #f5f7fa 260px);
+  --nd-surface: #ffffff;
+  --nd-surface-strong: #ffffff;
+  --nd-surface-hover: #f3f6fc;
+  --nd-surface-sunken: #f7f9fc;
+  --nd-border: #ebedf2;
+  --nd-border-strong: #dde2eb;
+  --nd-text: #1f2329;
+  --nd-text-secondary: #646a73;
+  --nd-text-muted: #8f959e;
+  --nd-shadow: 0 10px 30px rgba(31, 35, 41, 0.08);
+  --nd-shadow-sm: 0 1px 2px rgba(31, 35, 41, 0.05);
+  --nd-primary-soft: #eaf2ff;
+
+  // Element Plus 主色对齐设计稿
+  --el-color-primary: #{$primary};
+  --el-color-primary-light-3: #5c9bff;
+  --el-color-primary-light-5: #85b6ff;
+  --el-color-primary-light-7: #add0ff;
+  --el-color-primary-light-8: #c4ddff;
+  --el-color-primary-light-9: #e8f1ff;
+  --el-color-primary-dark-2: #1f66d9;
+
+  --el-border-radius-base: 8px;
+  --el-bg-color: #ffffff;
+  --el-bg-color-overlay: #ffffff;
+  --el-fill-color-blank: #ffffff;
+  --el-fill-color-light: #f5f7fa;
+  --el-border-color: #e5e9f0;
+  --el-border-color-light: #ebedf2;
+  --el-border-color-lighter: #f0f2f7;
+  --el-text-color-primary: #1f2329;
+  --el-text-color-regular: #4e5969;
+  --el-text-color-secondary: #8f959e;
+  --el-box-shadow-light: 0 6px 20px rgba(31, 35, 41, 0.08);
+}
+
+// 深色（手动切换）
+html.dark {
+  color-scheme: dark;
+  --nd-bg: #0b1020;
+  --nd-bg-glow: radial-gradient(circle at 25% 10%, #1b2340 0%, #0b1020 62%);
+  --nd-surface: rgba(255, 255, 255, 0.06);
+  --nd-surface-strong: rgba(255, 255, 255, 0.1);
+  --nd-surface-hover: rgba(255, 255, 255, 0.09);
+  --nd-surface-sunken: rgba(255, 255, 255, 0.03);
+  --nd-border: rgba(255, 255, 255, 0.12);
+  --nd-border-strong: rgba(255, 255, 255, 0.18);
+  --nd-text: #e5e7eb;
+  --nd-text-secondary: #9ca3af;
+  --nd-text-muted: #6b7280;
+  --nd-shadow: 0 18px 48px rgba(3, 7, 18, 0.55);
+  --nd-shadow-sm: 0 1px 2px rgba(3, 7, 18, 0.4);
+  --nd-primary-soft: rgba(43, 127, 255, 0.2);
+
+  --el-bg-color: #131a2e;
+  --el-bg-color-overlay: #182041;
+  --el-fill-color-blank: transparent;
+  --el-fill-color-light: rgba(255, 255, 255, 0.06);
+  --el-border-color: rgba(255, 255, 255, 0.12);
+  --el-border-color-light: rgba(255, 255, 255, 0.08);
+  --el-border-color-lighter: rgba(255, 255, 255, 0.06);
+  --el-text-color-primary: #e5e7eb;
+  --el-text-color-regular: #cbd5e1;
+  --el-text-color-secondary: #9ca3af;
+  --el-box-shadow-light: 0 6px 20px rgba(3, 7, 18, 0.5);
+}
